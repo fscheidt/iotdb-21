@@ -6,8 +6,8 @@
 
 ## Material:
 - paradigmas de banco de dados
-- [mysql](mysql/install.md)
 - [mongodb](mongodb/mongo.md)
+- [mysql](mysql/install.md)
 
 
 ---
