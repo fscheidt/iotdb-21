@@ -29,12 +29,47 @@ rodar no mesmo diretório onde esta o arquivo:
 mongoimport --db booksdb --collection books --file books.json
 ```
 
-
+```
 use booksdb
+```
 
-## 
+```
+show tables
+```
+
+Select limit 1
+```
+db.books.findOne()
+```
+
+Select where id
+```
+db.books.find({"_id": 3})
+```
+
+## Jupyter notebook
+abortado
+
+## Colab
+https://colab.research.google.com/notebooks/intro.ipynb
 
 
+
+!apt install mongodb
+
+
+!service mongodb start
+
+!mongoimport --db booksdb --collection books --file sample_data/books.json
+
+import pymongo
+client = pymongo.MongoClient()
+
+
+db = client.get_database('booksdb')
+
+
+db.books.find_one()
 
 
 
