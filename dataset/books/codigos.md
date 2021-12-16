@@ -54,26 +54,32 @@ abortado
 https://colab.research.google.com/notebooks/intro.ipynb
 
 
-
+```
 !apt install mongodb
+```
 
-
+```
 !service mongodb start
+```
 
+```
 !mongoimport --db booksdb --collection books --file sample_data/books.json
+```
 
+```
 import pymongo
 client = pymongo.MongoClient()
-
-
 db = client.get_database('booksdb')
+```
 
-
+```
 db.books.find_one()
+```
 
-
-
-
+Upload direto do github:
+```
+!wget https://raw.githubusercontent.com/fscheidt/iotdb-21/master/dataset/books/books.json
+```
 
 
 
