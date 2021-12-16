@@ -1,6 +1,6 @@
 [MongoDB](/mongodb/mongo.md)
 
-# Comandos para manipulação dos dados
+# API MongoDB - manipulação dos dados
 
 Comandos do MongoDB para encontrar, atualizar e remover dados.
 
@@ -16,7 +16,7 @@ Define o database padrão:
 use dbname
 ```
 
-Exibir todas as tabelas nesse database:
+Exibir todas as collections do database:
 ```js
 show tables
 ```
@@ -26,7 +26,7 @@ Remover uma collection (tabela):
 db.movie.drop()
 ```
 
-**Remover todo database**
+**Deletar o database**
 ```js
 use dbname
 db.dropDatabase()
@@ -34,7 +34,7 @@ db.dropDatabase()
 
 ---
 
-## ⚙ `find()`
+## `find()`
 
 Semelhante ao SELECT para pesquisa e seleção de documentos a partir de uma collection.
 
@@ -94,7 +94,7 @@ https://docs.mongodb.com/manual/reference/operator/query/
 - `$gte` - maior igual que
 - `$lt`  - menor que
 - `$lte` - menor igual que
-- `$eq`
+- `$eq`  - equal
 - `$ne`  - not equal
 - `$in`  - contidos no array
 - `$nin` - not in
@@ -105,33 +105,9 @@ https://docs.mongodb.com/manual/reference/operator/query/
 - `$not`
 - `$nor`
 
-### Operadores por elemento
-- `$exists` - somente documentos que contém o campo
-- `$type` - seleciona documentos se o campo é do tipo X
 
-### Operadores de avaliação
-- `$expr`
-- `$jsonSchema`
-- `$mod`
-- `$regex`
-- `$where`
-- `$text`
-
-### Operadores projeção
-- `$`
-- `$elemMatch`
-- `$meta`
-- `$slice`
-
-### Operadores array
-- `$all`
-- `$elemMatch`
-- `$size`
-
----
-
-## ⚙ `sort()`
-Ordena o resultado especificando um campo:
+## `sort()`
+Ordena o resultado de acordo com um campo:
 
 ```js
 // ascending
@@ -143,7 +119,7 @@ db.repo.find({}, {name: 1, "_id": 0}).sort( { name: 1 } )
 
 ---
 
-## ⚙  `distinct()`
+## `distinct()`
 
 **Select all distinct:** busca na collection repo e exibe uma lista contendo o atributo git_name somente resultados distintos:
 
@@ -158,7 +134,7 @@ db.commits.distinct('project').length
 
 ---
 
-## ⚙ `count()`
+## `count()`
 Exibe o total de registros retornados por uma query.
 
 **Obtém a quantidade total de registros na collection:**
@@ -181,9 +157,9 @@ db.users.find({$expr:{$gte:[{$size:"$repos"},3]}})
 
 ## Arrays
 
-Find inside a array of objects
+Find inside a array of objects:
 ```js
-self.db.users.find({'repos': {'$elemMatch': {'repo': '07e1c271d0e9bc871c78'}}})
+db.users.find({'repos': {'$elemMatch': {'repo': '07e1c271d0e9bc871c78'}}})
 ```
 
 ## collection fields
@@ -197,32 +173,17 @@ var fields = {}; db.repo.find().forEach(function(doc){Object.keys(doc).forEach(f
 var fields = {}; db.commits.find().limit(1).forEach(function(doc){Object.keys(doc).forEach(function(key){fields[key]=1})}); fields;
 ```
 
-```js
-
-```
-
-```js
-
-```
 
 ---
 
 ## Insert
 ```js
-db.book.insert({"title":"O iluminado","tag":"suspense"})
-```
-
-```js
-
-```
-
-```js
-
+db.book.insert({"title":"Avatar","tag":"aventura"})
 ```
 
 ---
 
-## ⚙ Delete
+## Delete
 ```js
 // remove is deprecated: use delete
 db.repo.remove( { name: { $eq: "intellij-community" } }, true );
@@ -240,7 +201,7 @@ db.emails.deleteMany({ tag: "Urgente"})
 
 ---
 
-## ⚙ Update
+## Update
 
 ```js
 db.profile.updateOne(
@@ -269,7 +230,6 @@ db.profile.updateMany(
 ```
 
 
-
 Remove um atributo em vários documentos:
 ```js
 db.repo.update(
@@ -296,10 +256,31 @@ db.book.update(
 );
 ```
 
+## Outros operadores
 
-```js
+### Operadores por elemento
+- `$exists` - somente documentos que contém o campo
+- `$type` - seleciona documentos se o campo é do tipo X
 
-```
+### Operadores de avaliação
+- `$expr`
+- `$jsonSchema`
+- `$mod`
+- `$regex`
+- `$where`
+- `$text`
+
+### Operadores de projeção
+- `$`
+- `$elemMatch`
+- `$meta`
+- `$slice`
+
+### Operadores de array
+- `$all`
+- `$elemMatch`
+- `$size`
+
 
 
 

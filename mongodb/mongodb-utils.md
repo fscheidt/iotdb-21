@@ -33,7 +33,7 @@ mongoimport --db codereview --collection review --drop --file qt.json
 ---
 
 ## Clonar database
-Algumas vezes é bom criar uma cópia do database no caso de precisar restaurar depois a versão original. Nesse caso usando o mongodump podemos criar uma cópia (arquivo) e com mongorestore criar um novo database com outro nome.
+Algumas vezes é bom criar uma cópia do database no caso de precisar restaurar depois a versão original. Usando mongodump para criar uma cópia (arquivo) e mongorestore para criar um novo database com base no backup.
 
 Rodar no shell:
 ```bash

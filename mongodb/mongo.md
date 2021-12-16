@@ -3,6 +3,6 @@
 # MongoDB
 
 ## Tópicos
+- [Manipulação dos dados](mongodb-comandos.md)
 - [Comandos de manutenção](mongodb-utils.md)
-- [Comandos de manipulação dos dados](mongodb-comandos.md)
-- [Configuração mongohack]()
+
