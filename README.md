@@ -3,6 +3,11 @@
 - Semestre: 2021/2
 - [Moodle](https://ava.ifpr.edu.br/course/view.php?id=6851)
 
+## Clonar
+Faça o clone desse repositório para manter uma cópia dos arquivos na sua máquina local. Execute o comando abaixo no terminal/prompt:
+```bash
+git clone https://github.com/fscheidt/iotdb-21.git --depth 1
+```
 
 ## Material:
 - paradigmas de banco de dados
